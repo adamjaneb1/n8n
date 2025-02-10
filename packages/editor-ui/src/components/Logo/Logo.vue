@@ -37,8 +37,7 @@ const svg = useTemplateRef<{ $el: Element }>('logo');
 onMounted(() => {
 	if (releaseChannel === 'stable' || !('createObjectURL' in URL)) return;
 	const logoEl = svg.value!.$el;
-	const logoColor = '#000000'; // Use black color for consistent favicon
-	logoEl.querySelector('path')?.setAttribute('fill', logoColor);
+	logoEl.querySelector('path')?.setAttribute('fill', '#000000');
 });
 </script>
 
