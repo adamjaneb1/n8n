@@ -22,42 +22,23 @@ const props = defineProps<
 
 const { location, releaseChannel } = props;
 
-const showReleaseChannelTag = computed(() => {
-	if (releaseChannel === 'stable') return false;
-	if (location === 'authView') return true;
-	return !props.collapsed;
-});
-
-const showLogoText = computed(() => {
-	if (location === 'authView') return true;
-	return !props.collapsed;
-});
+const showReleaseChannelTag = computed(() => false);
+const showLogoText = computed(() => true);
 
 const $style = useCssModule();
 const containerClasses = computed(() => {
 	if (location === 'authView') {
 		return [$style.logoContainer, $style.authView];
 	}
-	return [
-		$style.logoContainer,
-		$style.sidebar,
-		props.collapsed ? $style.sidebarCollapsed : $style.sidebarExpanded,
-	];
+	return [$style.logoContainer, $style.sidebar, $style.sidebarExpanded];
 });
 
 const svg = useTemplateRef<{ $el: Element }>('logo');
 onMounted(() => {
 	if (releaseChannel === 'stable' || !('createObjectURL' in URL)) return;
-
 	const logoEl = svg.value!.$el;
-
-	// Change the logo fill color inline, so that favicon can also use it
-	const logoColor = releaseChannel === 'dev' ? '#838383' : '#E9984B';
+	const logoColor = '#000000'; // Use black color for consistent favicon
 	logoEl.querySelector('path')?.setAttribute('fill', logoColor);
-
-	// Reuse the SVG as favicon
-	const blob = new Blob([logoEl.outerHTML], { type: 'image/svg+xml' });
-	useFavicon(URL.createObjectURL(blob));
 });
 </script>
 
@@ -65,9 +46,7 @@ onMounted(() => {
 	<div :class="containerClasses" data-test-id="n8n-logo">
 		<LogoIcon :class="$style.logo" ref="logo" />
 		<LogoText v-if="showLogoText" :class="$style.logoText" />
-		<div v-if="showReleaseChannelTag" size="small" round :class="$style.releaseChannelTag">
-			{{ releaseChannel }}
-		</div>
+
 		<slot />
 	</div>
 </template>

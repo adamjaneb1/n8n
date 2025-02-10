@@ -32,7 +32,9 @@ const $route = useRoute();
 
 const availableChildren = computed((): IMenuItem[] =>
 	Array.isArray(props.item.children)
-		? props.item.children.filter((child) => child.available !== false)
+		? props.item.children
+				.filter((child) => child.available !== false)
+				.filter((child) => child.label !== 'Help')
 		: [],
 );
 

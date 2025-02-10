@@ -260,7 +260,6 @@ watch(
 );
 
 onMounted(async () => {
-	documentTitle.set(i18n.baseText('workflows.heading'));
 	await setFiltersFromQueryString();
 	void usersStore.showPersonalizationSurvey();
 });

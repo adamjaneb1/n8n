@@ -1,23 +1,23 @@
 @use 'sass:math';
 
 @mixin theme {
-	--color-primary-h: var(--prim-color-primary-h);
-	--color-primary-s: var(--prim-color-primary-s);
-	--color-primary-l: 68%;
+	--color-primary-h: 204;
+	--color-primary-s: 100%;
+	--color-primary-l: 50%;
 
 	// Primary tokens
 
 	// Primary
-	--color-primary-shade-1: var(--prim-color-primary-shade-100);
-	--color-primary: var(--prim-color-primary);
-	--color-primary-tint-1: var(--prim-color-primary-tint-200);
-	--color-primary-tint-2: var(--prim-color-primary-tint-250);
-	--color-primary-tint-3: var(--prim-color-primary-tint-300);
+	--color-primary-shade-1: #2badbf;
+	--color-primary: #30c0d1;
+	--color-primary-tint-1: #7fd7e2;
+	--color-primary-tint-2: #a5e4ec;
+	--color-primary-tint-3: #ccf0f5;
 
 	// Secondary
 	--color-secondary-shade-1: var(--prim-color-secondary-shade-100);
-	--color-secondary: var(--prim-color-secondary);
-	--color-secondary-tint-1: var(--prim-color-secondary-tint-300);
+	--color-secondary: #30c0d1;
+	--color-secondary-tint-1: #7fd7e2;
 	--color-secondary-tint-3: var(--prim-color-secondary-tint-400);
 
 	// Success
@@ -230,11 +230,11 @@
 
 	// Button primary
 	--color-button-primary-font: var(--prim-gray-0);
-	--color-button-primary-border: var(--prim-color-primary);
-	--color-button-primary-background: var(--prim-color-primary);
-	--color-button-primary-hover-active-border: var(--prim-color-primary-shade-100);
-	--color-button-primary-hover-active-focus-background: var(--prim-color-primary-shade-100);
-	--color-button-primary-focus-outline: var(--prim-color-primary-alpha-035);
+	--color-button-primary-border: var(--color-primary);
+	--color-button-primary-background: var(--color-primary);
+	--color-button-primary-hover-active-border: var(--color-primary-shade-1);
+	--color-button-primary-hover-active-focus-background: var(--color-primary-shade-1);
+	--color-button-primary-focus-outline: var(--color-primary-tint-2);
 	--color-button-primary-disabled-font: var(--prim-gray-0-alpha-075);
 	--color-button-primary-disabled-border: var(--prim-color-primary-tint-200);
 	--color-button-primary-disabled-background: var(--prim-color-primary-tint-200);
@@ -243,10 +243,10 @@
 	--color-button-secondary-font: var(--prim-gray-670);
 	--color-button-secondary-border: var(--prim-gray-320);
 	--color-button-secondary-background: var(--prim-gray-0);
-	--color-button-secondary-hover-active-focus-font: var(--prim-color-primary-shade-100);
-	--color-button-secondary-hover-active-focus-border: var(--prim-color-primary);
-	--color-button-secondary-hover-background: var(--prim-color-primary-tint-300);
-	--color-button-secondary-active-focus-background: var(--prim-color-primary-tint-270);
+	--color-button-secondary-hover-active-focus-font: var(--color-primary);
+	--color-button-secondary-hover-active-focus-border: var(--color-primary);
+	--color-button-secondary-hover-background: var(--color-primary-tint-3);
+	--color-button-secondary-active-focus-background: var(--color-primary-tint-2);
 	--color-button-secondary-focus-outline: var(--prim-gray-120);
 	--color-button-secondary-disabled-font: var(--prim-gray-200);
 	--color-button-secondary-disabled-border: var(--prim-gray-200);
@@ -265,11 +265,12 @@
 
 	// Text button
 	--color-text-button-secondary-font: var(--prim-gray-670);
+	--color-text-button-secondary-hover: var(--color-primary);
 
 	// Node Creator Button
 	--color-button-node-creator-border-font: var(--prim-gray-540);
-	--color-button-node-creator-hover-font: var(--prim-color-primary);
-	--color-button-node-creator-hover-border: var(--prim-color-primary);
+	--color-button-node-creator-hover-font: var(--color-primary);
+	--color-button-node-creator-hover-border: var(--color-primary);
 	--color-button-node-creator-background: var(--prim-gray-0);
 
 	// Table
@@ -548,8 +549,8 @@
 	--color-light-grey: var(--prim-gray-120);
 	--color-neutral: var(--prim-gray-490);
 	--color-configurable-node-name: var(--color-text-dark);
-	--color-secondary-link: var(--color-secondary);
-	--color-secondary-link-hover: var(--color-secondary-shade-1);
+	--color-secondary-link: #30c0d1;
+	--color-secondary-link-hover: #2badbf;
 
 	// Menu
 	--color-menu-background: var(--prim-gray-0);
@@ -642,7 +643,13 @@
 
 	//Params
 	--color-icon-base: var(--color-text-light);
-	--color-icon-hover: var(--prim-color-primary);
+	--color-icon-hover: #30c0d1;
+
+	// Button tertiary
+	--color-button-tertiary-font: var(--prim-gray-670);
+	--color-button-tertiary-hover: var(--color-primary);
+	--color-button-tertiary-hover-border: var(--color-primary);
+	--color-button-tertiary-hover-background: var(--color-primary-tint-3);
 }
 
 :root {

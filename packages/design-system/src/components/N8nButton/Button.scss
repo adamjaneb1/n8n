@@ -36,7 +36,17 @@
 		border-color: $button-hover-border-color unquote($important);
 		background-color: $button-hover-background-color unquote($important);
 
-		& a {
+		& a,
+		& span,
+		& .n8n-icon,
+		& svg,
+		& path {
+			color: $button-hover-font-color unquote($important);
+			fill: currentColor;
+		}
+
+		// Add this section to target all child elements
+		& * {
 			color: $button-hover-font-color unquote($important);
 		}
 	}
@@ -113,12 +123,39 @@
 	}
 }
 
+@mixin n8n-button-primary {
+	--button-font-color: var(--color-button-primary-font);
+	--button-border-color: #30c0d1;
+	--button-background-color: #30c0d1;
+
+	--button-hover-font-color: var(--color-button-primary-font);
+	--button-hover-border-color: #2badbf; // Slightly darker shade for hover
+	--button-hover-background-color: #2badbf;
+
+	--button-active-font-color: var(--color-button-primary-font);
+	--button-active-border-color: #2badbf;
+	--button-active-background-color: #2badbf;
+
+	--button-focus-font-color: var(--color-button-primary-font);
+	--button-focus-border-color: #30c0d1;
+	--button-focus-background-color: #30c0d1;
+	--button-focus-outline-color: #30c0d1;
+
+	--button-disabled-font-color: var(--color-button-primary-disabled-font);
+	--button-disabled-border-color: #7fd7e2; // Lighter shade for disabled
+	--button-disabled-background-color: #7fd7e2;
+
+	--button-loading-font-color: var(--color-button-primary-font);
+	--button-loading-border-color: #30c0d1;
+	--button-loading-background-color: #30c0d1;
+}
+
 @mixin n8n-button-secondary {
 	--button-font-color: var(--color-button-secondary-font);
 	--button-border-color: var(--color-button-secondary-border);
 	--button-background-color: var(--color-button-secondary-background);
 
-	--button-hover-font-color: var(--color-button-secondary-hover-active-focus-font);
+	--button-hover-font-color: #30c0d1;
 	--button-hover-border-color: var(--color-button-secondary-hover-active-focus-border);
 	--button-hover-background-color: var(--color-button-secondary-hover-background);
 
@@ -219,4 +256,32 @@
 	--button-loading-font-color: var(--color-button-danger-font);
 	--button-loading-border-color: var(--color-danger);
 	--button-loading-background-color: var(--color-danger);
+}
+
+@mixin n8n-button-tertiary {
+	--button-font-color: var(--color-text-base);
+	--button-border-color: var(--color-foreground-base);
+	--button-background-color: var(--color-background-base);
+
+	--button-hover-font-color: #30c0d1;
+	--button-hover-border-color: #30c0d1;
+	--button-hover-background-color: var(--color-primary-tint-3);
+
+	--button-active-font-color: #30c0d1;
+	--button-active-border-color: #30c0d1;
+	--button-active-background-color: var(--color-primary-tint-2);
+
+	--button-focus-font-color: #30c0d1;
+	--button-focus-border-color: #30c0d1;
+	--button-focus-background-color: var(--color-primary-tint-3);
+
+	&:hover {
+		span,
+		.n8n-icon,
+		svg,
+		path {
+			color: #30c0d1 !important;
+			fill: currentColor !important;
+		}
+	}
 }

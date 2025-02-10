@@ -2,7 +2,7 @@
 
 @mixin theme {
 	// Primary tokens
-	--color-danger: var(--prim-color-alt-k);
+	--color-danger: #40a7de;
 
 	// Text
 	--color-text-dark: var(--prim-gray-40);
@@ -208,7 +208,7 @@
 	--color-button-danger-disabled-background: var(--prim-color-alt-c-alpha-02);
 
 	// Text button
-	--color-text-button-secondary-font: var(--prim-gray-320);
+	--color-text-button-secondary-hover: var(--color-primary);
 
 	// Node Creator Button
 	--color-button-node-creator-border-font: var(--color-button-secondary-font);
@@ -489,6 +489,20 @@
 	--color-menu-background: var(--prim-gray-740);
 	--color-menu-hover-background: var(--prim-gray-670);
 	--color-menu-active-background: var(--prim-gray-670);
+
+	// Primary color and its variations
+	--prim-color-primary: #30c0d1;
+	--prim-color-primary-tint-1: #7fd7e2;
+	--prim-color-primary-tint-2: #a5e4ec;
+	--prim-color-primary-tint-3: #ccf0f5;
+	--prim-color-primary-shade-1: #2badbf;
+
+	// Icon hover
+	--color-icon-hover: #30c0d1;
+
+	// Links
+	--color-secondary-link: #7fd7e2;
+	--color-secondary-link-hover: #30c0d1;
 }
 
 body[data-theme='dark'] {

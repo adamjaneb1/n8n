@@ -253,10 +253,13 @@ $loading-overlay-background-color: rgba(255, 255, 255, 0);
 	--button-background-color: transparent;
 	--button-hover-border-color: transparent;
 	--button-hover-background-color: transparent;
+	--button-hover-font-color: var(--color-primary); // Uses the primary blue variable
 	--button-active-border-color: transparent;
 	--button-active-background-color: transparent;
+	--button-active-font-color: var(--color-primary); // Uses the primary blue variable
 	--button-focus-border-color: transparent;
 	--button-focus-background-color: transparent;
+	--button-focus-font-color: var(--color-primary); // Uses the primary blue variable
 	--button-disabled-border-color: transparent;
 	--button-disabled-background-color: transparent;
 
@@ -265,11 +268,11 @@ $loading-overlay-background-color: rgba(255, 255, 255, 0);
 	}
 
 	&.primary {
-		--button-font-color: var(--color-primary);
-		--button-hover-font-color: var(--color-primary-shade-1);
-		--button-active-font-color: var(--color-primary-shade-1);
-		--button-focus-font-color: var(--color-primary);
-		--button-disabled-font-color: var(--color-primary-tint-1);
+		--button-font-color: var(--color-primary); // Uses the primary blue variable
+		--button-hover-font-color: var(--color-primary-shade-1); // Uses the darker blue variable
+		--button-active-font-color: var(--color-primary-shade-1); // Uses the darker blue variable
+		--button-focus-font-color: var(--color-primary); // Uses the primary blue variable
+		--button-disabled-font-color: var(--color-primary-tint-1); // Uses the lighter blue variable
 	}
 
 	&.success {

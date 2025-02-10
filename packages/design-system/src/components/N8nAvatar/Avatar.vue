@@ -17,21 +17,13 @@ const props = withDefaults(defineProps<AvatarProps>(), {
 	lastName: '',
 	size: 'medium',
 	colors: () => [
-		'--color-primary',
-		'--color-secondary',
-		'--color-avatar-accent-1',
-		'--color-avatar-accent-2',
-		'--color-primary-tint-1',
+		'#0A7E8C',
+		//#40a7de
 	],
 });
 
 const name = computed(() => `${props.firstName} ${props.lastName}`.trim());
 const initials = computed(() => getInitials(name.value));
-
-const getColors = (colors: string[]): string[] => {
-	const style = getComputedStyle(document.body);
-	return colors.map((color: string) => style.getPropertyValue(color));
-};
 
 const sizes: { [size: string]: number } = {
 	xsmall: 20,
@@ -44,13 +36,7 @@ const getSize = (size: string): number => sizes[size];
 
 <template>
 	<span :class="['n8n-avatar', $style.container]" v-bind="$attrs">
-		<Avatar
-			v-if="name"
-			:size="getSize(size)"
-			:name="name"
-			variant="marble"
-			:colors="getColors(colors)"
-		/>
+		<Avatar v-if="name" :size="getSize(size)" :name="name" :colors="colors" />
 		<div v-else :class="[$style.empty, $style[size]]"></div>
 		<span v-if="firstName || lastName" :class="[$style.initials, $style[`text-${size}`]]">
 			{{ initials }}
