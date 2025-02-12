@@ -1,0 +1,36 @@
+services:
+  n8n:
+    build:
+      context: .
+      dockerfile: docker/images/n8n-custom/Dockerfile
+    ports:
+      - "5678:5678"
+    environment:
+      - DB_TYPE=postgresdb
+      - DB_POSTGRESDB_HOST=postgres
+      - DB_POSTGRESDB_DATABASE=n8n
+      - DB_POSTGRESDB_USER=postgres
+      - DB_POSTGRESDB_PASSWORD=password
+      - N8N_ENCRYPTION_KEY=your-secret-key-here
+      - NODE_ENV=production
+      - N8N_HOST=0.0.0.0
+      - N8N_PORT=5678
+    volumes:
+      - n8n_data:/usr/src/app/.n8n
+    restart: unless-stopped
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      - POSTGRES_DB=n8n
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:
+  n8n_data:
+  postgres_data: 
